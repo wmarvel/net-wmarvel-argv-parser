@@ -19,8 +19,8 @@
 (provide 'net-wmarvel-argv-parser-tests)
 
 ;;; Probably just need one suite, for now
-(def-suite argv-parser-tests :description "Argument parser testing suite")
-(in-suite argv-parser-tests)
+(def-suite argv-parser-suite :description "Argument parser testing suite")
+(in-suite argv-parser-suite)
 
 (def-fixture argv-test-fixture (expected-count-list)
   (let ((count-table (make-hash-table :test #'eq))
@@ -125,6 +125,5 @@
     (restartable-handler-case
 	(doparse "--foo" "--bar" "baz" "bey" "--foo" "--foo" "--bar" "--bar")
       (unknown-argument-error (condition)
-	(princ condition)
 	(upcount :restarts)
 	(invoke-restart 'replace-current-arguments '("--foo" "--bar"))))))
