@@ -118,7 +118,7 @@
 (defun make-argument-handler-table ()
   "make-argument-handler-table => table
    Returns a table of argument strings to argument handler functions"
-  (make-hash-table :test #'equal))x
+  (make-hash-table :test #'equal))
 
 (defun set-argument-handler (switch function argument-table)
   "set-argument-handler switch function argument-table => function
